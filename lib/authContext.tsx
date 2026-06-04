@@ -28,6 +28,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setUser(session?.user ?? null);
       } catch (error) {
         console.error('Error getting session:', error);
+        setSession(null);
+        setUser(null);
       } finally {
         setLoading(false);
       }

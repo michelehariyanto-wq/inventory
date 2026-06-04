@@ -71,6 +71,7 @@ export default function LoginPage() {
               placeholder="your@email.com"
               className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
               required
+              disabled={loading}
             />
           </div>
 
@@ -85,15 +86,23 @@ export default function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
               className="mt-2 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
+              required
+              disabled={loading}
+            />
+          </div>
+
+          <button
+            type="submit"
             disabled={loading}
             className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-gray-400 text-white font-semibold py-2 rounded-lg transition duration-200"
           >
             {loading ? 'Loading...' : isSignUp ? 'Sign Up' : 'Sign In'}
+          </button>
+        </form>
 
-          <button
-            type="submit"
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg transition duration-200"
-          >{isSignUp ? 'Already have an account? ' : "Don't have an account? "}
+        <div className="mt-6 text-center">
+          <p className="text-gray-600 text-sm">
+            {isSignUp ? 'Already have an account? ' : "Don't have an account? "}
             <button
               type="button"
               onClick={() => {
@@ -103,16 +112,9 @@ export default function LoginPage() {
               className="text-blue-500 font-semibold hover:underline"
             >
               {isSignUp ? 'Sign In' : 'Sign Up'}
-            </butto
-          </button>
-        </form>
-
-        <div className="mt-6 text-center">
-          <p className="text-gray-600 text-sm">
-            Don't have an account?{' '}
-            <span className="text-blblue-50 border border-blue-200 rounded-lg">
-          <p className="text-xs text-blue-800">
-            <strong>Demo Account:</strong> Email: demo@example.com | Password: demo123456
+            </button>
+          </p>
+        </div>
 
         <div className="mt-6 pt-6 border-t border-gray-200 text-center">
           <Link href="/" className="text-blue-500 hover:text-blue-600 font-semibold text-sm">
@@ -120,9 +122,9 @@ export default function LoginPage() {
           </Link>
         </div>
 
-        <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
-          <p className="text-xs text-yellow-800">
-            <strong>Note:</strong> Login functionality is not yet implemented. This is a UI preview only.
+        <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+          <p className="text-xs text-blue-800">
+            <strong>Demo Account:</strong> Email: demo@example.com | Password: demo123456
           </p>
         </div>
       </div>

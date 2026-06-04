@@ -97,6 +97,8 @@ export default function Navbar() {
                   Sign Up
                 </Link>
               </>
+            )}
+          </div>
 
           {/* Mobile Menu Button */}
           <button
